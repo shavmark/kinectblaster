@@ -1,17 +1,27 @@
+#include "2552software.h"
 #include "ofApp.h"
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+	kinect.open();
+	audio.setup(&kinect);
+
+	faces.setup(&kinect);
+	bodies.useFaces();
+	bodies.setup(&kinect);
 
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+	faces.update(); 
+	bodies.update(); 
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+	faces.draw(); 
+	bodies.draw();
 
 }
 

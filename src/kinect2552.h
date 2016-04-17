@@ -1,9 +1,8 @@
 #pragma once
 #define Foundation_UnWindows_INCLUDED
-#include "ofMain.h"
+#include "2552software.h"
 //bugbug fix path in debug and release mode
 #include <C:\Program Files\Microsoft SDKs\Kinect\v2.0_1409\inc\Kinect.Face.h>
-#include "2552software.h"
 
 //https://github.com/Vangos, http://www.cs.princeton.edu/~edwardz/tutorials/kinect2/kinect0_sdl.html, https://github.com/UnaNancyOwen
 //http://www.pointclouds.org/
@@ -84,17 +83,6 @@ namespace Software2552 {
 		UINT                    m_cRef;
 		IStream*                m_p32BitAudio;
 		bool                    m_SpeechActive;
-	};
-	// drawing related items start here
-	class BaseClass2552WithDrawing : public BaseClass {
-	public:
-		BaseClass2552WithDrawing() { valid = false; }
-
-		bool objectValid() { return valid; } // data is in a good state
-		void setValid(bool b = true) { valid = b; };
-
-	private:
-		bool valid; // true when data is valid and ready to draw
 	};
 
 	//base class for things like faces

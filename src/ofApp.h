@@ -1,6 +1,8 @@
 #pragma once
 
-#include "ofMain.h"
+#include "2552software.h"
+#include "networking.h"
+#include "kinect2552.h" 
 
 class ofApp : public ofBaseApp{
 
@@ -20,5 +22,12 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-		
+
+		Software2552::WriteComms comms;
+		Software2552::KinectBodies bodies;
+		Software2552::KinectFaces faces;
+		Software2552::KinectAudio audio;
+		Software2552::Kinect2552 kinect;
+
+
 };

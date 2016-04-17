@@ -1,8 +1,10 @@
-#include "ofMain.h"
+#include "2552software.h"
 #include "ofApp.h"
 
 //========================================================================
 int main( ){
+	Software2552::init();
+
 	ofSetupOpenGL(1024,768,OF_WINDOW);			// <-------- setup the GL context
 
 	// this kicks off the running of my app

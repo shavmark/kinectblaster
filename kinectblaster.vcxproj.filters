@@ -43,9 +43,6 @@
     <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.cpp">
       <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
     </ClCompile>
-    <ClCompile Include="src\2552software.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\kinect2552.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -54,6 +51,12 @@
     </ClCompile>
     <ClCompile Include="..\..\..\addons\ofxJson\libs\jsoncpp\src\jsoncpp.cpp">
       <Filter>addons\ofxJson\libs\jsoncpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\storyteller\src\networking.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\storyteller\src\2552software.cpp">
+      <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -173,9 +176,6 @@
     <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.h">
       <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
     </ClInclude>
-    <ClInclude Include="src\2552software.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="src\kinect2552.h">
       <Filter>src</Filter>
     </ClInclude>
@@ -190,6 +190,12 @@
     </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxJson\libs\jsoncpp\include\json\json.h">
       <Filter>addons\ofxJson\libs\jsoncpp\include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\storyteller\src\networking.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\storyteller\src\2552software.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
