@@ -1,4 +1,6 @@
-#include "2552software.h"
+#include "ofMain.h"
+#include "networking.h"
+#include "kinect2552.h" 
 #include "ofApp.h"
 
 //--------------------------------------------------------------

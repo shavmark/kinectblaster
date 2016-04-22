@@ -55,9 +55,6 @@
     <ClCompile Include="..\storyteller\src\networking.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\storyteller\src\2552software.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -192,9 +189,6 @@
       <Filter>addons\ofxJson\libs\jsoncpp\include\json</Filter>
     </ClInclude>
     <ClInclude Include="..\storyteller\src\networking.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\storyteller\src\2552software.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

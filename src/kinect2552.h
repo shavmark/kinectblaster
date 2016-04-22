@@ -1,6 +1,6 @@
 #pragma once
 #define Foundation_UnWindows_INCLUDED
-#include "2552software.h"
+
 //bugbug fix path in debug and release mode
 #include <C:\Program Files\Microsoft SDKs\Kinect\v2.0_1409\inc\Kinect.Face.h>
 
@@ -10,6 +10,68 @@
 // https://github.com/Microsoft/DirectX-Graphics-Samples
 
 namespace Software2552 {
+	class BaseClass {
+	public:
+	private:
+	};
+	// drawing related items start here
+	class BaseClass2552WithDrawing : public BaseClass {
+	public:
+		BaseClass2552WithDrawing() { valid = false; }
+
+		bool objectValid() { return valid; } // data is in a good state
+		void setValid(bool b = true) { valid = b; };
+
+	private:
+		bool valid; // true when data is valid and ready to draw
+	};
+
+	// can be, but does not need to be, a base class as its all static and can just be called, could not even be a class I suppose
+	class Trace : public BaseClass {
+	public:
+		static bool checkPointer2(IUnknown *p, const string&  message, char*file = __FILE__, int line = __LINE__);
+		static bool checkPointer2(BaseClass *p, const string&  message, char*file = __FILE__, int line = __LINE__);
+
+		static void logError2(const string& error, char*file, int line);
+		static void logVerbose2(const string& message, char*file, int line) {
+			if (ofGetLogLevel() >= OF_LOG_VERBOSE) {
+				ofLog(OF_LOG_VERBOSE, buildString(message, file, line));
+			}
+		}
+		static void logTraceBasic(const string& message, char *name);
+		static void logTraceBasic(const string& message);
+		static void logTrace2(const string& message, char*file, int line);
+		static void logError2(HRESULT hResult, const string&  message, char*file, int line);
+		static bool CheckHresult2(HRESULT hResult, const string& message, char*file, int line);
+		static string buildString(const string& errorIn, char* file, int line);
+		static std::string wstrtostr(const std::wstring &wstr);
+
+		// get the right line number bugbug add DEBUG ONLY
+#define logError(p1, p2) Trace::logError2(p1, p2, __FILE__, __LINE__)
+#define logErrorString(p1) Trace::logError2(p1, __FILE__, __LINE__)
+#if _DEBUG
+#define logVerbose(p1) Trace::logVerbose2(p1, __FILE__, __LINE__)
+#else
+#define logVerbose(p1) 
+#endif
+#define logTrace(p1) Trace::logTrace2(p1, __FILE__, __LINE__)
+#define checkPointer(p1, p2) Trace::checkPointer2(p1, p2, __FILE__, __LINE__)
+#define checkPointer(p1, p2) Trace::checkPointer2(p1, p2, __FILE__, __LINE__)
+#define hresultFails(p1, p2) Trace::CheckHresult2(p1, p2, __FILE__, __LINE__)
+#define basicTrace(p) Trace::logTraceBasic(p, #p)
+		// simple text log, even w/o debug
+#define echo(p) Trace::logTraceBasic(p)
+#define echoError(p) Trace::logErrorString(p)
+#define tracer(p, isError) (isError ? echoError(p) : echo(p))
+	};
+
+	template<class Interface> void SafeRelease(Interface *& pInterfaceToRelease)
+	{
+		if (pInterfaceToRelease != NULL) {
+			pInterfaceToRelease->Release();
+			pInterfaceToRelease = NULL;
+		}
+	}
 
 	// <summary>
 	/// Asynchronous IStream implementation that captures audio data from Kinect audio sensor in a background thread
@@ -85,11 +147,11 @@ namespace Software2552 {
 		bool                    m_SpeechActive;
 	};
 
-	//base class for things like faces
 	class Kinect2552BaseClass : public BaseClass2552WithDrawing {
 	public:
+			
 	};
-	
+
 	class Kinect2552 : public Kinect2552BaseClass {
 	public:
 		Kinect2552();
@@ -145,7 +207,7 @@ namespace Software2552 {
 	};
 
 	//base class for things like faces
-	class Kinect2552BaseClassBodyItems : public Kinect2552BaseClass {
+	class Kinect2552BaseClassBodyItems  {
 	public:
 		void setup(Kinect2552 *pKinectIn);
 		Kinect2552 *getKinect() { checkPointer(pKinect, "getKinect"); return pKinect; }
